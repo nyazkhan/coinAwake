@@ -1,5 +1,7 @@
 {
   "name": "CoinAwake",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
