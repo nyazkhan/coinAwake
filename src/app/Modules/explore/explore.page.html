@@ -1,17 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+  <ion-row class="header-bg">
+    <ion-col>
+      <div>
+        <h5 class="title ml-10">
+          Explore
+          <ion-icon class="icon" (click)="getNewsData()" name="reload-outline"></ion-icon>
+        </h5>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+
+  <app-custam-tabs [titles]='titles' [selectedTab]='selectedTitle' (newItemEvent)="filterby($event)">
+  </app-custam-tabs>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="bg">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <ng-container *ngFor="let item of items">
+      
+    <app-new-card [card]='item' (click)="newsClick(item)"> </app-new-card>
+  </ng-container> -->
+
+  <ion-slides (ionSlideDidChange)="slideChanged($event)" #slides>
+
+
+
+    <ion-slide class="ion-padding " style=" vertical-align:top" *ngFor="let head of titles ">
+
+
+      <ng-container *ngFor="let item of head.data ">
+
+        <app-new-card [card]="item"> </app-new-card>
+      </ng-container>
+    </ion-slide>
+
+  </ion-slides>
 </ion-content>

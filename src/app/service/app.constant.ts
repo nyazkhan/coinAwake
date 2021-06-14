@@ -1,5 +1,4 @@
-export const BASEURL = 'http://ipsaa-dev.ap-south-1.elasticbeanstalk.com';
-
 export const AppUrls = {
-    
+    getCryptoNews:  'coin/reader/getCryptoNews',
+    postCryptoNews: 'coin/reader/coinNews/getCryptoNews'
 }

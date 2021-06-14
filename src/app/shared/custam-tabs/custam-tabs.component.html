@@ -1,0 +1,29 @@
+<!-- <div class="tabs">
+  <div class="active" *ngFor="let head of titles1">
+    <img [src]="'assets/explore/' +head + '.svg'"> 
+<span>
+  {{head.key}}
+</span>
+
+  </div>
+</div> -->
+<!-- <ion-segment [value]="selectedTitle.value" (ionChange)="segmentChanged($event)">
+  <ng-container *ngFor="let head of titles;let i=index">
+
+    <ion-segment-button [value]="head.value" [ngClass]="head.value==selectedTitle.value ? 'active':''"
+      layout="icon-start">
+      <img [src]="'assets/explore/' +head.key + '.svg'"> 
+      <ion-label> {{head.key}}</ion-label>
+    </ion-segment-button>
+  </ng-container>
+
+</ion-segment> -->
+
+<div class="tabs" [id]="'id'">
+  <ng-container *ngFor="let head of titles;let i=index">
+  <div (click)="selectTab(head)" [ngClass]="head.key==activeTab ? 'active tab':'tab'" [id]="i">
+    <ion-label>{{head.key }} </ion-label>
+    <div [ngClass]="head.key==activeTab ? 'line':''"></div>
+  </div>
+  </ng-container>
+</div>

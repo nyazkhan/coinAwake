@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
 import { map } from 'rxjs/operators';
 import { StorageService } from './storage.service';
 import { CustomHTTPService } from './custom-http.service';
+import { AppUrls } from './app.constant';
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
     User: any;
 
-    constructor(public api: CustomHTTPService, public storage: StorageService) { }
+    constructor(@Inject(CustomHTTPService) private api: CustomHTTPService, public storage: StorageService) { }
 
     login(phoneNo) {
         return this.api.post('user/save', { mobile: phoneNo, type: 1, name: 'nyaz khan' }).pipe(map(response => {
@@ -41,6 +42,42 @@ export class UserService {
 
     isLoggedIn() {
         return localStorage.getItem('accessToken') ? true : false;
+    }
+
+
+    getCryptoNews() {
+
+        return this.api.post(AppUrls.postCryptoNews, {
+            "sourceName": [],
+            "sentimate": [],
+            "topicName": [],
+            "coinId": []
+        }
+        )
+
+
+        // return this.api.get(AppUrls.getCryptoNews)
+
+    }
+
+    addToBookmark(item) {
+        let arr = this.storage.getData('bookmark') || [];
+        arr.push(item)
+        this.storage.storeData('bookmark', arr);
+
+    }
+    removeFromBookmark(item) {
+        let arr = this.storage.getData('bookmark');
+        const index = arr.indexOf(item);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+        this.storage.storeData('bookmark', arr);
+
+    }
+
+    getBookmarks() {
+        return this.storage.getData('bookmark');
     }
 }
 

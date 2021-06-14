@@ -1,0 +1,49 @@
+<ion-content>
+  <ion-row class="header-bg">
+    <ion-col>
+      <div>
+        <h5 class="title" (click)="goBack()">
+          <ion-icon name="arrow-back"></ion-icon> &nbsp; News
+        </h5>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="scroll">
+    <ion-col class="ion-no-padding " style=" background: white;" size="12">
+      <img class="img "  (click)="openNews(newsDetail.newsUrl)" [src]="newsDetail.imageUrl">
+    </ion-col>
+    <ion-col class="ion-no-padding bg-white" size="12">
+      <div class="content-title"> {{newsDetail?.title}}</div>
+    </ion-col>
+    <ion-col class="ion-no-padding mb-30" size="12">
+      <div class="content-text"> {{newsDetail?.text}}</div>
+
+    </ion-col>
+  </ion-row>
+  <ion-row class="fixed-bottom-button  ">
+    <ion-col size="4">
+      <div >
+
+        {{newsDetail.sourceName}}
+
+      </div>
+    </ion-col>
+    <ion-col size="4" class="second">
+      <div [ngClass]="newsDetail.sentiment ">
+
+        {{newsDetail.sentiment}}
+
+      </div>
+    </ion-col>
+    <ion-col size="4">
+      <div class="float-r">
+
+        <span *ngFor="let coin of newsDetail.coinMaster">
+          <span> {{coin.name}} &nbsp;</span>
+        </span>
+
+      </div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

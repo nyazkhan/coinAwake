@@ -13,15 +13,18 @@ import { StorageService } from './storage.service';
 export class CustomHTTPService {
 
   // url: string = BASEURL;
-  url = 'http://139.59.18.149:8282/crab';
+  url = ' http://161.35.118.216:8899';
   constructor(public http: HttpClient, public storage: StorageService, public router: Router, public alertService: AlertService) { }
 
   getHeaders(optHeaders?: HttpHeaders) {
     let headers = new HttpHeaders();
-    if (this.storage.getData('accessToken')) {
-      headers = headers.set('crab_at', this.storage.getData('accessToken')
-      );
-    }
+    // if (this.storage.getData('accessToken')) {
+    //   headers = headers.set('crab_at', this.storage.getData('accessToken')
+    //   );
+    // }
+    headers = headers.set('token', 'yerf-f432f-23dsf-232' )
+    headers = headers.set('Content-Type', 'application/json' )
+    
     if (optHeaders) {
       for (const optHeader of optHeaders.keys()) {
         headers = headers.append(optHeader, optHeaders.get(optHeader));

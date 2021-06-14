@@ -1,0 +1,50 @@
+ion-segment {
+  background: #ffffff;
+
+  width: auto;
+  overflow-x: scroll;
+}
+ion-label {
+      
+      padding: 0px 12px;
+
+}
+.tabs {
+  display: flex;
+  overflow: scroll;
+  width: auto;
+  align-items: center;
+  height: 41px;
+
+  font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+
+color: #8B8B8B;
+  .active {
+  
+    font-weight: bold;   
+    color: #212121;
+    .line {
+        background: #f9683b;
+        border-radius: 4px 4px 0px 0px;
+        height: 4px;
+    
+        width: auto;
+      }
+  }
+  img {
+    margin-right: 10px;
+  }
+  .tab {
+    margin: 5px 20px;
+  }
+ 
+}
+.tabs::-webkit-scrollbar {
+  display: none;
+}

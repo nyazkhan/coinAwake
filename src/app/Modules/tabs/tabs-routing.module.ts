@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NewDetailsComponent } from 'src/app/shared/new-details/new-details.component';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
@@ -27,6 +28,11 @@ const routes: Routes = [
         path: 'Alert',
         loadChildren: () => import('../alert/alert.module').then(m => m.AlertPageModule)
       },
+       {
+        path: 'news',
+        component:  NewDetailsComponent
+      },
+      
       {
         path: '',
         redirectTo: '/dashboard/Home',
