@@ -3,8 +3,8 @@
     <ion-col>
       <div>
         <h5 class="title ml-10">
-          Explore
-          <ion-icon class="icon" (click)="getNewsData()" name="reload-outline"></ion-icon>
+          Coin Awake
+          <!-- <ion-icon class="icon" (click)="getNewsData({})" name="reload-outline"></ion-icon> -->
         </h5>
       </div>
     </ion-col>
@@ -26,16 +26,37 @@
 
   <ion-slides (ionSlideDidChange)="slideChanged($event)" #slides>
 
+    <ion-slide class="ion-padding " *ngFor="let head of titles ">
+      <!-- <ion-refresher slot="fixed" *ngIf="selectedTitle.key == head.key" (ionRefresh)="doRefresh($event)" pullMin="100"
+        pullMax="200">
+        <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+          refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+
+      </ion-refresher>
+      <ng-container *ngIf="selectedTitle.key == head.key">
 
 
-    <ion-slide class="ion-padding " style=" vertical-align:top" *ngFor="let head of titles ">
 
 
-      <ng-container *ngFor="let item of head.data ">
+        <ng-container class="height" *ngFor="let item of article ">
 
-        <app-new-card [card]="item"> </app-new-card>
-      </ng-container>
+          <app-new-card [card]="item"> </app-new-card>
+        </ng-container>
+      
+
+      </ng-container> -->
+      <app-cardlist [list]="article" (refresh)="refresh($event)">
+
+      </app-cardlist>
+<div class="heigth"> 
+
+</div>
     </ion-slide>
 
   </ion-slides>
+  <!-- <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
 </ion-content>

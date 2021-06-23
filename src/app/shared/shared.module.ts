@@ -4,18 +4,21 @@ import { NewCardComponent } from './new-card/new-card.component';
 import { IonicModule } from '@ionic/angular';
 import { NewDetailsComponent } from './new-details/new-details.component';
 import { CustamTabsComponent } from './custam-tabs/custam-tabs.component';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { CardlistComponent } from './cardlist/cardlist.component';
 
 
 
 @NgModule({
-  declarations: [NewCardComponent , CustamTabsComponent , NewDetailsComponent],
+  declarations: [NewCardComponent, CardlistComponent, CustamTabsComponent, NewDetailsComponent],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+
   ],
   exports: [
-    NewCardComponent , CustamTabsComponent , NewDetailsComponent],
-  entryComponents: [NewCardComponent , CustamTabsComponent , NewDetailsComponent],
+    NewCardComponent, CardlistComponent, CustamTabsComponent, NewDetailsComponent],
+  entryComponents: [NewCardComponent, CardlistComponent, CustamTabsComponent, NewDetailsComponent],
 
 })
 export class SharedModule { }

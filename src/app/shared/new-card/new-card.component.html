@@ -4,7 +4,7 @@
 <ion-card *ngIf="card" class="card" >
   <ion-row class="m-10">
     <ion-col size="4">
-      <img class="content-img" (click)="newsClick(card)" [src]="card?.imageUrl">
+      <img class="content-img" (click)="openWebpage(card.newsUrl)" [src]="card?.imageUrl">
     </ion-col>
     <ion-col size="8">
       <ion-row>
@@ -19,14 +19,14 @@
         </ion-col>
       </ion-row>
 
-      <div class="content-text" (click)="newsClick(card)"> {{card?.title}}</div>
+      <div class="content-text" (click)="openWebpage(card.newsUrl)"> {{card?.title}}</div>
     </ion-col>
 
   </ion-row>
   <ion-row class="m-10">
 
     <ion-col class="content-time" size="4">
-      <ion-text>{{diff_hours(card?.date)}} </ion-text>
+      <ion-text>{{diff_hours(card?.createdDate)}} </ion-text>
     </ion-col>
     <ion-col class="content-from" size="7">
      <span *ngFor="let coin of card?.coinMaster">
@@ -35,8 +35,8 @@
     
     </ion-col>
     <ion-col size="1" >
-      <ion-icon *ngIf="card?.bookmark" (click)="bookmark()" color="warning" style="float: right;" name="bookmark"></ion-icon>
-      <ion-icon  *ngIf="!card?.bookmark" (click)="bookmark()" color="medium-tint" style="float: right;" name="bookmark-outline"></ion-icon>
+      <!-- <ion-icon *ngIf="card?.bookmark" (click)="bookmark()" color="warning" style="float: right;" name="bookmark"></ion-icon>
+      <ion-icon  *ngIf="!card?.bookmark" (click)="bookmark()" color="medium-tint" style="float: right;" name="bookmark-outline"></ion-icon> -->
 
       <!-- <img  style="float: right;" src="assets/bookmark.svg"> -->
     </ion-col>

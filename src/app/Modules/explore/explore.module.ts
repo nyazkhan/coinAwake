@@ -18,9 +18,11 @@ import { FilterProductByCategory } from 'src/app/service/pipe/filterByType';
     FormsModule,
     ExploreContainerComponentModule,
     ExplorePageRoutingModule,
-    SharedModule
+    SharedModule,
+    
   ],
   declarations: [ExplorePage , FilterProductByCategory],
-  entryComponents:[NewCardComponent , CustamTabsComponent]
+  entryComponents:[NewCardComponent , CustamTabsComponent],
+  providers:[ ]
 })
 export class ExplorePageModule {}

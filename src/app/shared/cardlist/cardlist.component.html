@@ -1,0 +1,17 @@
+<ion-content class="bg" style="height:89vh">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullMin="100" pullMax="200">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+
+  </ion-refresher>
+  <ng-container class="height" *ngFor="let item of list ; let i= index">
+
+    <app-new-card [card]="item"> </app-new-card>
+  </ng-container>
+
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

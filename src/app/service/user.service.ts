@@ -45,19 +45,28 @@ export class UserService {
     }
 
 
-    getCryptoNews() {
+    getCryptoNews(obj) {
 
-        return this.api.post(AppUrls.postCryptoNews, {
-            "sourceName": [],
-            "sentimate": [],
-            "topicName": [],
-            "coinId": []
+
+        let reqObj = {
+            "sourceName": obj.sourceName || [],
+            "sentimate": obj.sentimate || [],
+            "topicName": obj.topicName || [],
+            "coinId": obj.coinId || [],
+            "pageNo": obj.pageNo || 1,
+            "totalRecord":  obj.totalRecord || 10,
+            "typeName": obj.typeName || []
+
         }
-        )
+        return this.api.post(AppUrls.postCryptoNews, reqObj)
 
 
         // return this.api.get(AppUrls.getCryptoNews)
 
+    }
+
+    getCoinMaster() {
+        return this.api.get(AppUrls.coinMaster)
     }
 
     addToBookmark(item) {

@@ -19,13 +19,22 @@
     "@angular/platform-browser": "~12.0.1",
     "@angular/platform-browser-dynamic": "~12.0.1",
     "@angular/router": "~12.0.1",
+    "@ionic-native/admob-free": "^5.33.1",
     "@ionic-native/core": "^5.33.1",
+    "@ionic-native/in-app-browser": "^5.33.1",
     "@ionic-native/splash-screen": "^5.33.1",
     "@ionic/angular": "^5.5.2",
-    "cordova-android": "8.1.0",
+    "@types/cordova-plugin-inappbrowser": "^2.0.0",
+    "compare-func": "^2.0.0",
+    "cordova-admob-sdk": "^0.24.1",
+    "cordova-android": "^9.1.0",
+    "cordova-plugin-admob-free": "^0.27.0",
     "cordova-plugin-inappbrowser": "^4.1.0",
     "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-promise-polyfill": "0.0.2",
     "rxjs": "~6.6.0",
+    "rxjs-compat": "^6.6.7",
+    "shelljs": "^0.8.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
@@ -75,7 +84,10 @@
       "cordova-plugin-device": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-admob-free": {
+        "ADMOB_APP_ID": "ca-app-pub-8625656522236573~6405948795"
+      }
     }
   }
 }
