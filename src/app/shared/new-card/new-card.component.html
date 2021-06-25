@@ -2,7 +2,7 @@
   {{card?.sourceName}} 
 </p> -->
 <ion-card *ngIf="card" class="card" >
-  <ion-row class="m-10">
+  <ion-row class="m-10" style="margin-top: 5px;">
     <ion-col size="4">
       <img class="content-img" (click)="openWebpage(card.newsUrl)" [src]="card?.imageUrl">
     </ion-col>
@@ -13,7 +13,7 @@
           {{card?.sourceName}}
 
         </ion-col>
-        <ion-col size="4" [ngClass]="card?.sentiment">
+        <ion-col class="ion-no-padding" size="4" [ngClass]="card?.sentiment">
           {{card?.sentiment}}
 
         </ion-col>
@@ -23,10 +23,10 @@
     </ion-col>
 
   </ion-row>
-  <ion-row class="m-10">
+  <ion-row class="m-10 mb-4">
 
     <ion-col class="content-time" size="4">
-      <ion-text>{{diff_hours(card?.createdDate)}} </ion-text>
+      <span>{{diff_hours(card?.createdDate)}} </span>
     </ion-col>
     <ion-col class="content-from" size="7">
      <span *ngFor="let coin of card?.coinMaster">

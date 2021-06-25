@@ -64,23 +64,23 @@ export class NewCardComponent implements OnInit {
 
 
   openWebpage(url: string) {
-    const options: InAppBrowserOptions = {
-      zoom: 'no',
-      location: 'yes',
-      clearcache: 'yes',
-      toolbar: 'no',
-      hideurlbar: 'yes',
-      closebuttoncaption: 'Back',
-      closebuttoncolor: '#ffffff',
-      toolbarcolor: '#1c52bb',
-      fullscreen: 'no',
-    }
+    // const options: InAppBrowserOptions = {
+    //   zoom: 'no',
+    //   location: 'yes',
+    //   clearcache: 'yes',
+    //   toolbar: 'yes',
+    //   hideurlbar: 'no',
+    //   closebuttoncaption: 'Back',
+    //   closebuttoncolor: '#ffffff',
+    //   toolbarcolor: '#1c52bb',
+    //   fullscreen: 'no',
+    // }
 
-    // Opening a URL and returning an InAppBrowserObject
-    const browser = this.iab.create(url, '_self', options);
-    browser.insertCSS({ code: "body{font-size: 25px;}" });
-    browser.show()
-
+   
+    // const browser = this.iab.create(url, '_self', options);
+    // browser.insertCSS({ code: "body{font-size: 25px;}" });
+    // browser.show()
+    location.href = url
     // Inject scripts, css and more with browser.X
   }
 }

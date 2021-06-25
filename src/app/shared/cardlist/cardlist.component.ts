@@ -15,15 +15,9 @@ export class CardlistComponent implements OnInit {
 
   ngOnInit() { }
   doRefresh(event) {
-    console.log(event);
-    // this.reqObj.pageNo = 1;
+   
     this.refresh.emit({ type: 'refresh', event: event });
-    // this.userService.getCryptoNews(this.reqObj).subscribe((res) => {
-    //   this.article = []
-    //   this.article = res.data.data
-    // event.target.complete();
-
-    // })
+   
     this.showBannerAd()
   }
 

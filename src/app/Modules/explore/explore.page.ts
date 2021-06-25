@@ -53,6 +53,22 @@ export class ExplorePage implements OnInit {
       key: 'Videos',
       value: 'Video'
     },
+    
+    {
+      data: [],
+      key: 'Bitcoin',
+      value: 'bitcoin'
+    },
+    {
+      data: [],
+      key: 'Ethereum',
+      value: 'ethereum'
+    },
+    {
+      data: [],
+      key: 'StableCoin',
+      value: 'stablecoins'
+    },
     {
       data: [],
       key: 'Analysis',
@@ -145,7 +161,7 @@ export class ExplorePage implements OnInit {
     this.userService.getCryptoNews(obj).subscribe((res) => {
       this.article = res.data.data
 
-      
+
 
     })
   }
@@ -155,7 +171,11 @@ export class ExplorePage implements OnInit {
     this.slides.getActiveIndex().then((index: number) => {
       this.selectedTitle = this.titles[index];
       this.reqObj.pageNo = 1;
-      this.article = []
+      this.article = [];
+      if (this.infiniteScroll) {
+
+        // this.infiniteScroll.disabled = false;
+      }
       this.getNewsData(this.makeRequestObject());
     });
   }
@@ -166,7 +186,10 @@ export class ExplorePage implements OnInit {
     this.userService.getCryptoNews(this.makeRequestObject()).subscribe((res) => {
       this.article = []
       this.article = res.data.data
+      if (this.infiniteScroll) {
 
+        // this.infiniteScroll.disabled = false;
+      }
       event.target.complete(); // this is how you need to call in v4
 
     })
@@ -178,7 +201,10 @@ export class ExplorePage implements OnInit {
     setTimeout(() => {
       this.userService.getCryptoNews(this.makeRequestObject()).subscribe((res) => {
         this.article = this.article.concat(res.data.data)
+        if (this.article.length == res.data.totalCount) {
+          // this.infiniteScroll.disabled = true;
 
+        }
         event.target.complete(); // this is how you need to call in v4
       })
 
@@ -209,6 +235,10 @@ export class ExplorePage implements OnInit {
 
     if (this.selectedTitle.value == 'Article' || this.selectedTitle.value == 'Video') {
       this.reqObj.typeName.push(this.selectedTitle.value)
+    } else if (this.selectedTitle.value == 'bitcoin'){
+      this.reqObj.coinId.push(89)
+    } else if (this.selectedTitle.value == 'ethereum'){
+      this.reqObj.coinId.push(4)
     } else {
       this.reqObj.topicName.push(this.selectedTitle.value)
     }
